@@ -1,10 +1,10 @@
-#include<iostream>//std::cout, std::endl
+#include<iostream>
 #include<random>//std::mt19937, std::uniform_int_distribution
 #include<functional>//std::bind
-#include<ctime>//std::time
+#include<ctime>
 
 std::mt19937 engine;
-std::uniform_int_distribution<uint32_t> distribution{1, 10};// uniform brace notation
+std::uniform_int_distribution<uint32_t> distribution{1, 10};
 
 int main() {
   engine.seed(static_cast<uint32_t>(std::time(nullptr)));

@@ -4,37 +4,43 @@ CXXFLAGS = -std=c++0x -pthread -O3
 LDFLAGS  =
 LIBS     =
 VERSION  = $(shell cat version)
+BUILDDIR = build
+BINDIR   = $(BUILDDIR)/bin
 TAR_NAME = exemples_cpp11
 SOURCES  = auto_decltype.cc for_iter.cc nullptr.cc uniform_init.cc random.cc Makefile version
 
-all: auto-decltype for-iter nullptr uniform-init random
+all: create-dirs auto-decltype for-iter nullptr uniform-init random
 
-auto-decltype: auto_decltype.cc
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $< $(LIBS)
+auto-decltype: auto_decltype.cc create-dirs
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
 
-for-iter: for_iter.cc
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $< $(LIBS)
+for-iter: for_iter.cc create-dirs
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
 
-nullptr: nullptr.cc
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $< $(LIBS)
+nullptr: nullptr.cc create-dirs
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
 
-uniform-init: uniform_init.cc
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $< $(LIBS)
+uniform-init: uniform_init.cc create-dirs
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
 
-random: random.cc
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $< $(LIBS)
+random: random.cc create-dirs
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
 
 clean:
-	rm -f auto-decltype for-iter nullptr uniform-init random
+	rm -f $(BINDIR)/*
 
 distclean: clean
-	rm -f *~ \#* $(TAR_NAME)-$(VERSION).tar.gz
+	rm -f *~ \#*
+	rm -rf $(BUILDDIR)
+
+create-dirs:
+	mkdir -p $(BINDIR)
 
 tar:
-	rm -rf $(TAR_NAME)-$(VERSION) $(TAR_NAME)-$(VERSION).tar $(TAR_NAME)-$(VERSION).tar.gz
-	mkdir $(TAR_NAME)-$(VERSION)
-	cp $(SOURCES) $(TAR_NAME)-$(VERSION)
-	tar cvvf $(TAR_NAME)-$(VERSION).tar $(TAR_NAME)-$(VERSION)
-	gzip -9 $(TAR_NAME)-$(VERSION).tar
-	rm -rf $(TAR_NAME)-$(VERSION)
+	rm -rf $(BUILDDIR)/$(TAR_NAME)-$(VERSION) $(BUILDDIR)/$(TAR_NAME)-$(VERSION).tar $(BUILDDIR)/$(TAR_NAME)-$(VERSION).tar.gz
+	mkdir -p $(BUILDDIR)/$(TAR_NAME)-$(VERSION)
+	cp $(SOURCES) $(BUILDDIR)/$(TAR_NAME)-$(VERSION)
+	tar cvvf $(BUILDDIR)/$(TAR_NAME)-$(VERSION).tar $(BUILDDIR)/$(TAR_NAME)-$(VERSION)
+	gzip -9 $(BUILDDIR)/$(TAR_NAME)-$(VERSION).tar
+	rm -rf $(BUILDDIR)/$(TAR_NAME)-$(VERSION)
 

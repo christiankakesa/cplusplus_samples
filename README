@@ -1,10 +1,9 @@
-This c++11 code sample completes my blog article at http://{url}
+This c++11 code sample completes my blog article at http://{url}.
+This code is tested on Ubuntu GNU/Linux 11.10 with g++ 4.6.1.
 
-Build the code : 
-
+Build the code in directory "build/bin" : 
   make
 
-Make a tar archive :
-
+Make a tar archive in directory "build" :
   make tar
 
