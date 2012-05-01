@@ -5,9 +5,9 @@ LDFLAGS  =
 LIBS     =
 VERSION  = $(shell cat version)
 TAR_NAME = exemples_cpp11
-SOURCES  = auto_decltype.cc for_iter.cc nullptr.cc random.cc Makefile version
+SOURCES  = auto_decltype.cc for_iter.cc nullptr.cc uniform_init.cc random.cc Makefile version
 
-all: auto-decltype for-iter nullptr random
+all: auto-decltype for-iter nullptr uniform-init random
 
 auto-decltype: auto_decltype.cc
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $< $(LIBS)
@@ -18,11 +18,14 @@ for-iter: for_iter.cc
 nullptr: nullptr.cc
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $< $(LIBS)
 
+uniform-init: uniform_init.cc
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $< $(LIBS)
+
 random: random.cc
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $< $(LIBS)
 
 clean:
-	rm -f auto-decltype for-iter nullptr random
+	rm -f auto-decltype for-iter nullptr uniform-init random
 
 distclean: clean
 	rm -f *~ \#* $(TAR_NAME)-$(VERSION).tar.gz
