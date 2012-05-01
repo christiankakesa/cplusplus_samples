@@ -1,1 +1,8 @@
-Mes exemples C++11.
+This c++11 samples complete my blog article at : http://{url}
+
+Build the code : 
+  make
+
+Build archive of code :
+  make tar
+
