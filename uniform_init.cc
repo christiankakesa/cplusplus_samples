@@ -7,7 +7,7 @@ struct Version {
   uint32_t major;
   uint32_t minor;
   uint32_t revision;
-  
+
   std::string toString() const {
     std::ostringstream oss;
     oss << major << "." << minor << "." << revision;

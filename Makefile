@@ -7,9 +7,12 @@ VERSION  = $(shell cat version)
 BUILDDIR = build
 BINDIR   = $(BUILDDIR)/bin
 TAR_NAME = exemples_cpp11
-SOURCES  = auto_decltype.cc for_iter.cc nullptr.cc uniform_init.cc random.cc Makefile version
+SOURCES  = lambda_for-each.cc auto_decltype.cc for_iter.cc nullptr.cc uniform_init.cc random.cc Makefile version
 
-all: create-dirs auto-decltype for-iter nullptr uniform-init random
+all: create-dirs lambda-for-each auto-decltype for-iter nullptr uniform-init random
+
+lambda-for-each: lambda_for-each.cc create-dirs
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
 
 auto-decltype: auto_decltype.cc create-dirs
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
@@ -43,4 +46,3 @@ tar:
 	tar cvvf $(BUILDDIR)/$(TAR_NAME)-$(VERSION).tar $(BUILDDIR)/$(TAR_NAME)-$(VERSION)
 	gzip -9 $(BUILDDIR)/$(TAR_NAME)-$(VERSION).tar
 	rm -rf $(BUILDDIR)/$(TAR_NAME)-$(VERSION)
-

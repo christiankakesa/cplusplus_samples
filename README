@@ -1,7 +1,7 @@
 This c++11 code sample completes my blog article at http://www.kakesa.net/programmation/cplusplus11-decouverte-de-ce-nouveau-dialecte/797.
 This code is tested on Ubuntu GNU/Linux 11.10 with g++ 4.6.1.
 
-Build the code in "build/bin" directory by typing : 
+Build the code in "build/bin" directory by typing :
 
   make
 
