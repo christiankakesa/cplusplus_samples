@@ -1,4 +1,4 @@
-# G++ 4.6.1
+# G++ 4.6.3
 CXX      = g++
 CXXFLAGS = -std=c++0x -pthread -O3
 LDFLAGS  =

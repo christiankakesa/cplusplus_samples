@@ -10,8 +10,8 @@ int main() {
 		std::cout << d << " ";
 	}
 	std::cout << std::endl;
-	// Process data vector
-	for_each(data.begin(), data.end(), [](std::string &item) {
+	// Process data vector with lambda function
+	for_each(begin(data), end(data), [](std::string &item) {
 		item += "_append";
 	});
 	// Print data vector after processing
