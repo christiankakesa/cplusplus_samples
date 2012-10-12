@@ -16,7 +16,7 @@ int main() {
 		three += "_three";
 	});
 	// Print data vector after processing
-	std::cout << "after:" << std::endl << " - ";
+	std::cout << "after:" << std::endl << " - data: ";
 	for (const auto d : data) {
 		std::cout << d << " ";
 	}
