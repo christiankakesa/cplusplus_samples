@@ -1,7 +1,8 @@
 language: cpp
+branches:
+   only:
+     - master
 install:
-	- sudo aptitude install make
-	- sudo aptitude install gcc
-	- sudo aptitude install g++
+	- make get-deps
 script: make
 compiler: gcc
