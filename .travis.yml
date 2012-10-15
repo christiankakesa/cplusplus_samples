@@ -1,8 +1,6 @@
 language: cpp
-branches:
-   only:
-     - master
-install:
-	- make get-deps
-script: make
-compiler: gcc
+compiler:
+  - gcc
+  - clang
+script:
+  - make
