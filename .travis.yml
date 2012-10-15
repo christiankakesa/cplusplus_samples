@@ -1,6 +1,7 @@
-install: make get-deps
 language: cpp
+install:
+	- sudo aptitude install make
+	- sudo aptitude install gcc
+	- sudo aptitude install g++
 script: make
-compiler:
-	- gcc
-	- clang
+compiler: gcc
