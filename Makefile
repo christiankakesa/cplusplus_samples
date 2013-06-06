@@ -1,15 +1,25 @@
-# G++ 4.6.3
-CXX      = g++
-CXXFLAGS = -std=c++0x -pthread -O3
+# G++ 4.7
+
+CXX      = g++-4.7
+CXXFLAGS = -std=c++0x -pthread
 LDFLAGS  =
 LIBS     =
 VERSION  = $(shell cat version)
 BUILDDIR = build
 BINDIR   = $(BUILDDIR)/bin
 TAR_NAME = exemples_cpp11
-SOURCES  = lambda_for-each.cc auto_decltype.cc for_iter.cc nullptr.cc uniform_init.cc random.cc Makefile version
+SOURCES  = regex.cc chrono_seconds.cc chrono.cc lambda_for-each.cc auto_decltype.cc for_iter.cc nullptr.cc uniform_init.cc random.cc Makefile version
 
-all: create-dirs lambda-for-each auto-decltype for-iter nullptr uniform-init random
+all: create-dirs regex chrono_seconds chrono lambda-for-each auto-decltype for-iter nullptr uniform-init random
+
+regex: regex.cc create-dirs
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
+
+chrono_seconds: chrono_seconds.cc create-dirs
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
+
+chrono: chrono.cc create-dirs
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
 
 lambda-for-each: lambda_for-each.cc create-dirs
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
