@@ -1,6 +1,6 @@
 # G++ 4.7
 
-CXX      = g++-4.7
+CXX      = g++
 CXXFLAGS = -std=c++0x -pthread
 LDFLAGS  =
 LIBS     =
