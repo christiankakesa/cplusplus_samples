@@ -1,18 +1,18 @@
 # G++ 4.8
 
-CXX      = g++
-CXXFLAGS = -std=c++0x -pthread
-LDFLAGS  =
+#CXX      = g++-4.8
+#CXXFLAGS = -std=c++11
+CXX      = clang++
+CXXFLAGS = -std=c++11 -stdlib=libc++ -Wall -Wextra
+LDFLAGS  = -lc++abi
 LIBS     =
 VERSION  = $(shell cat version)
 BUILDDIR = build
 BINDIR   = $(BUILDDIR)/bin
 TAR_NAME = examples_cpp11
-#SOURCES  = regex.cc chrono_seconds.cc chrono.cc lambda_for-each.cc auto_decltype.cc for_iter.cc nullptr.cc uniform_init.cc random.cc Makefile version
-SOURCES  = lambda_for-each.cc auto_decltype.cc for_iter.cc nullptr.cc uniform_init.cc random.cc Makefile version
+SOURCES  = regex.cc chrono_seconds.cc chrono.cc lambda_for-each.cc auto_decltype.cc for_iter.cc nullptr.cc uniform_init.cc random.cc Makefile version
 
-#all: create-dirs regex chrono_seconds chrono lambda-for-each auto-decltype for-iter nullptr uniform-init random
-all: create-dirs lambda-for-each auto-decltype for-iter nullptr uniform-init random
+all: create-dirs regex chrono_seconds chrono lambda-for-each auto-decltype for-iter nullptr uniform-init random
 
 regex: regex.cc create-dirs
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
