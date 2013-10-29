@@ -3,7 +3,7 @@
 #CXX      = g++-4.8
 #CXXFLAGS = -std=c++11
 CXX      = clang++
-CXXFLAGS = -std=c++11 -stdlib=libc++ -Wall -Wextra
+CXXFLAGS = -std=c++11 -stdlib=libc++ -Wall -Wextra -fno-omit-frame-pointer
 LDFLAGS  = -lc++abi
 LIBS     =
 VERSION  = $(shell cat version)
