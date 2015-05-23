@@ -1,8 +1,8 @@
-#include<iostream>
-#include<chrono>
-#include<thread>
+#include <iostream>
+#include <chrono>
+#include <thread>
 
-int main () {
+int main() {
     auto start = std::chrono::steady_clock::now();
     std::this_thread::sleep_for(std::chrono::seconds(2));
     auto end = std::chrono::steady_clock::now();
