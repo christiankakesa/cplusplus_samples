@@ -1,6 +1,5 @@
-CXX      = $(shell which g++) -std=c++14
-#CXX      = clang++ -std=c++1y -stdlib=libstdc++
-CXXFLAGS = -static -Wall -Wextra -fno-omit-frame-pointer
+CXX = g++-4.9
+CXXFLAGS = -std=c++14 -static -Wall -Wextra -fno-omit-frame-pointer
 LIBS     =
 VERSION  = $(shell git describe --abbrev=0 --tags)
 BUILDDIR = build
