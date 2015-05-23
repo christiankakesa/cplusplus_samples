@@ -8,35 +8,34 @@ VERSION  = $(shell git describe --abbrev=0 --tags)
 BUILDDIR = build
 BINDIR   = $(BUILDDIR)/bin
 TAR_NAME = examples_cpp11
-SOURCES  = regex.cc chrono_seconds.cc chrono.cc lambda_for-each.cc auto_decltype.cc for_iter.cc nullptr.cc uniform_init.cc random.cc Makefile version
 
 all: create-dirs regex chrono_seconds chrono lambda-for-each auto-decltype for-iter nullptr uniform-init random
 
-regex: regex.cc create-dirs
+regex: src/regex.cc create-dirs
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
 
-chrono_seconds: chrono_seconds.cc create-dirs
+chrono_seconds: src/chrono_seconds.cc create-dirs
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
 
-chrono: chrono.cc create-dirs
+chrono: src/chrono.cc create-dirs
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
 
-lambda-for-each: lambda_for-each.cc create-dirs
+lambda-for-each: src/lambda_for-each.cc create-dirs
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
 
-auto-decltype: auto_decltype.cc create-dirs
+auto-decltype: src/auto_decltype.cc create-dirs
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
 
-for-iter: for_iter.cc create-dirs
+for-iter: src/for_iter.cc create-dirs
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
 
-nullptr: nullptr.cc create-dirs
+nullptr: src/nullptr.cc create-dirs
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
 
-uniform-init: uniform_init.cc create-dirs
+uniform-init: src/uniform_init.cc create-dirs
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
 
-random: random.cc create-dirs
+random: src/random.cc create-dirs
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
 
 clean:
@@ -52,7 +51,7 @@ create-dirs:
 tar:
 	rm -rf $(BUILDDIR)/$(TAR_NAME)-$(VERSION) $(BUILDDIR)/$(TAR_NAME)-$(VERSION).tar $(BUILDDIR)/$(TAR_NAME)-$(VERSION).tar.gz
 	mkdir -p $(BUILDDIR)/$(TAR_NAME)-$(VERSION)
-	cp $(SOURCES) $(BUILDDIR)/$(TAR_NAME)-$(VERSION)
-	tar cvf $(BUILDDIR)/$(TAR_NAME)-$(VERSION).tar $(BUILDDIR)/$(TAR_NAME)-$(VERSION)
+	cp -r src Makefile README $(BUILDDIR)/$(TAR_NAME)-$(VERSION)
+	cd $(BUILDDIR) && tar cvf $(TAR_NAME)-$(VERSION).tar $(TAR_NAME)-$(VERSION)
 	gzip -9 $(BUILDDIR)/$(TAR_NAME)-$(VERSION).tar
 	rm -rf $(BUILDDIR)/$(TAR_NAME)-$(VERSION)
