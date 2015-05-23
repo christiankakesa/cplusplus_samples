@@ -4,7 +4,7 @@ CXX      = clang++
 CXXFLAGS = -std=c++1y -stdlib=libstdc++ -static -Wall -Wextra -fno-omit-frame-pointer
 #LDFLAGS  = -lc++abi
 LIBS     =
-VERSION  = $(shell cat version)
+VERSION  = $(shell git describe --abbrev=0 --tags)
 BUILDDIR = build
 BINDIR   = $(BUILDDIR)/bin
 TAR_NAME = examples_cpp11
@@ -53,6 +53,6 @@ tar:
 	rm -rf $(BUILDDIR)/$(TAR_NAME)-$(VERSION) $(BUILDDIR)/$(TAR_NAME)-$(VERSION).tar $(BUILDDIR)/$(TAR_NAME)-$(VERSION).tar.gz
 	mkdir -p $(BUILDDIR)/$(TAR_NAME)-$(VERSION)
 	cp $(SOURCES) $(BUILDDIR)/$(TAR_NAME)-$(VERSION)
-	tar cvvf $(BUILDDIR)/$(TAR_NAME)-$(VERSION).tar $(BUILDDIR)/$(TAR_NAME)-$(VERSION)
+	tar cvf $(BUILDDIR)/$(TAR_NAME)-$(VERSION).tar $(BUILDDIR)/$(TAR_NAME)-$(VERSION)
 	gzip -9 $(BUILDDIR)/$(TAR_NAME)-$(VERSION).tar
 	rm -rf $(BUILDDIR)/$(TAR_NAME)-$(VERSION)
