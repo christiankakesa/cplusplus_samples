@@ -1,10 +1,8 @@
-# G++ 4.8
-
-#CXX      = g++-4.8
-#CXXFLAGS = -std=c++11
+#CXX      = g++-4.9
+#CXXFLAGS = -std=c++14 -static
 CXX      = clang++
-CXXFLAGS = -std=c++11 -stdlib=libc++ -Wall -Wextra -fno-omit-frame-pointer
-LDFLAGS  = -lc++abi
+CXXFLAGS = -std=c++1y -stdlib=libstdc++ -static -Wall -Wextra -fno-omit-frame-pointer
+#LDFLAGS  = -lc++abi
 LIBS     =
 VERSION  = $(shell cat version)
 BUILDDIR = build
