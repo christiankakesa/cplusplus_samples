@@ -1,4 +1,4 @@
-CXX      = $(shell which g++) -std=c++14 -static
+CXX      = $(shell which g++) -std=c++14
 #CXX      = clang++ -std=c++1y -stdlib=libstdc++
 CXXFLAGS = -static -Wall -Wextra -fno-omit-frame-pointer
 LIBS     =
