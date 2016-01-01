@@ -1,10 +1,10 @@
-CXX = g++-4.9
-CXXFLAGS = -std=c++14 -static -Wall -Wextra -fno-omit-frame-pointer
+CXX = g++
+CXXFLAGS = -std=c++1y -O2 -static -Wall -Wextra -fno-omit-frame-pointer
 LIBS     =
 VERSION  = $(shell git describe --abbrev=0 --tags)
 BUILDDIR = build
 BINDIR   = $(BUILDDIR)/bin
-TAR_NAME = examples_cpp11
+TAR_NAME = cplusplus_samples
 
 all: create-dirs regex chrono_seconds chrono lambda-for-each auto-decltype for-iter nullptr uniform-init random
 
@@ -45,7 +45,7 @@ distclean: clean
 create-dirs:
 	mkdir -p $(BINDIR)
 
-tar:
+targz:
 	rm -rf $(BUILDDIR)/$(TAR_NAME)-$(VERSION) $(BUILDDIR)/$(TAR_NAME)-$(VERSION).tar $(BUILDDIR)/$(TAR_NAME)-$(VERSION).tar.gz
 	mkdir -p $(BUILDDIR)/$(TAR_NAME)-$(VERSION)
 	cp -r src Makefile README $(BUILDDIR)/$(TAR_NAME)-$(VERSION)
