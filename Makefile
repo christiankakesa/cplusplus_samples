@@ -1,4 +1,3 @@
-CXX = g++
 CXXFLAGS = -std=c++1y -O2 -static -Wall -Wextra -fno-omit-frame-pointer
 LIBS     =
 VERSION  = $(shell git describe --abbrev=0 --tags)
