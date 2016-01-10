@@ -5,33 +5,38 @@ BUILDDIR = build
 BINDIR   = $(BUILDDIR)/bin
 TAR_NAME = cplusplus_samples
 
-all: create-dirs regex chrono_seconds chrono lambda-for-each auto-decltype for-iter nullptr uniform-init random
+.PHONY: return_type_deduction regex chrono_seconds chrono lambda_for_each auto_decltype for_iter nullptr uniform_init random clean distclean create_dirs targz
 
-regex: src/regex.cc create-dirs
+all: create_dirs return_type_deduction regex chrono_seconds chrono lambda_for_each auto_decltype for_iter nullptr uniform_init random
+
+return_type_deduction: src/return_type_deduction.cc create_dirs
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
 
-chrono_seconds: src/chrono_seconds.cc create-dirs
+regex: src/regex.cc create_dirs
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
 
-chrono: src/chrono.cc create-dirs
+chrono_seconds: src/chrono_seconds.cc create_dirs
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
 
-lambda-for-each: src/lambda_for-each.cc create-dirs
+chrono: src/chrono.cc create_dirs
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
 
-auto-decltype: src/auto_decltype.cc create-dirs
+lambda_for_each: src/lambda_for-each.cc create_dirs
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
 
-for-iter: src/for_iter.cc create-dirs
+auto_decltype: src/auto_decltype.cc create_dirs
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
 
-nullptr: src/nullptr.cc create-dirs
+for_iter: src/for_iter.cc create_dirs
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
 
-uniform-init: src/uniform_init.cc create-dirs
+nullptr: src/nullptr.cc create_dirs
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
 
-random: src/random.cc create-dirs
+uniform_init: src/uniform_init.cc create_dirs
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
+
+random: src/random.cc create_dirs
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
 
 clean:
@@ -41,7 +46,7 @@ distclean: clean
 	rm -f *~ \#*
 	rm -rf $(BUILDDIR)
 
-create-dirs:
+create_dirs:
 	mkdir -p $(BINDIR)
 
 targz:
