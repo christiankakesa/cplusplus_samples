@@ -1,6 +1,6 @@
 #include <iostream>
-#include <random>     // std::mt19937, std::uniform_int_distribution
-#include <functional> // std::bind
+#include <random>      // std::mt19937, std::uniform_int_distribution
+#include <functional>  // std::bind
 #include <ctime>
 
 int main() {
