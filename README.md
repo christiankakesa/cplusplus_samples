@@ -9,6 +9,7 @@
 * [src/random.cc](https://github.com/fenicks/cplusplus_samples/blob/master/src/random.cc): How easy it is to generate random numbers
 * [src/regex.cc](https://github.com/fenicks/cplusplus_samples/blob/master/src/regex.cc): Usage of regexp to find emails in string 
 * [src/return_type_deduction.cc](https://github.com/fenicks/cplusplus_samples/blob/master/src/return_type_deduction.cc): Example for return type deduction
+* [src/tuple_addressing_via_type.cc](https://github.com/fenicks/cplusplus_samples/blob/master/src/tuple_addressing_via_type.cc): Example for addressing tuple via type if there is no ambiguity
 * [src/uniform_init.cc](https://github.com/fenicks/cplusplus_samples/blob/master/src/uniform_init.cc): Uniform initializer with __std::vector__
 
 ## Build the code in "build/bin" directory by typing :

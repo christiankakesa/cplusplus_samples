@@ -5,9 +5,12 @@ BUILDDIR = build
 BINDIR   = $(BUILDDIR)/bin
 TAR_NAME = cplusplus_samples
 
-.PHONY: return_type_deduction regex chrono_seconds chrono lambda_for_each auto_decltype for_iter nullptr uniform_init random clean distclean create_dirs targz
+.PHONY: tuple_addressing_via_type return_type_deduction regex chrono_seconds chrono lambda_for_each auto_decltype for_iter nullptr uniform_init random clean distclean create_dirs targz
 
-all: create_dirs return_type_deduction regex chrono_seconds chrono lambda_for_each auto_decltype for_iter nullptr uniform_init random
+all: create_dirs tuple_addressing_via_type return_type_deduction regex chrono_seconds chrono lambda_for_each auto_decltype for_iter nullptr uniform_init random
+
+tuple_addressing_via_type: src/tuple_addressing_via_type.cc create_dirs
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
 
 return_type_deduction: src/return_type_deduction.cc create_dirs
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
