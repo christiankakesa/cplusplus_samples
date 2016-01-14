@@ -11,7 +11,7 @@ int main() {
     // Process data vector with lambda function
     for_each(begin(data), end(data), [one, &two, &three](std::string &item) mutable {
         item += "_append";
-        one += "_another value now"; // We use "mutable" for variable passed by copy.
+        one += "_another value now";  // We use "mutable" for variable passed by copy.
         two += "_two";
         three += "_three";
     });
