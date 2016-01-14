@@ -29,7 +29,7 @@ int main() {
         std::smatch my_matches;
         if (std::regex_search(text, my_matches, my_regex)) {
             std::cout << "[I found an email]" << std::endl;
-	    print_with_padding(my_matches[0]);
+        print_with_padding(my_matches[0]);
         } else {
             std::cout << "[No email match!!!]" << std::endl;
         }
