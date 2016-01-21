@@ -3,11 +3,15 @@ LIBS     =
 VERSION  = $(shell git describe --abbrev=0 --tags)
 BUILDDIR = build
 BINDIR   = $(BUILDDIR)/bin
+LIBDIR   = $(BUILDDIR)/.lib
 TAR_NAME = cplusplus_samples
 
-.PHONY: binary_literals tuple_addressing_via_type return_type_deduction regex chrono_seconds chrono lambda_for_each auto_decltype for_iter nullptr uniform_init random clean distclean create_dirs targz
+.PHONY: deprecated_attribute binary_literals tuple_addressing_via_type return_type_deduction regex chrono_seconds chrono lambda_for_each auto_decltype for_iter nullptr uniform_init random clean distclean create_dirs targz
 
-all: create_dirs binary_literals tuple_addressing_via_type return_type_deduction regex chrono_seconds chrono lambda_for_each auto_decltype for_iter nullptr uniform_init random
+all: create_dirs deprecated_attribute binary_literals tuple_addressing_via_type return_type_deduction regex chrono_seconds chrono lambda_for_each auto_decltype for_iter nullptr uniform_init random
+
+deprecated_attribute: src/deprecated_attribute.cc create_dirs
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
 
 binary_literals: src/binary_literals.cc create_dirs
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
@@ -47,6 +51,7 @@ random: src/random.cc create_dirs
 
 clean:
 	rm -f $(BINDIR)/*
+	rm -f $(LIBDIR)/*
 
 distclean: clean
 	rm -f *~ \#*
@@ -54,6 +59,7 @@ distclean: clean
 
 create_dirs:
 	mkdir -p $(BINDIR)
+	mkdir -p $(LIBDIR)
 
 targz:
 	rm -rf $(BUILDDIR)/$(TAR_NAME)-$(VERSION) $(BUILDDIR)/$(TAR_NAME)-$(VERSION).tar $(BUILDDIR)/$(TAR_NAME)-$(VERSION).tar.gz
