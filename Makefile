@@ -6,9 +6,12 @@ BINDIR   = $(BUILDDIR)/bin
 LIBDIR   = $(BUILDDIR)/.lib
 TAR_NAME = cplusplus_samples
 
-.PHONY: deprecated_attribute binary_literals tuple_addressing_via_type return_type_deduction regex chrono_seconds chrono lambda_for_each auto_decltype for_iter nullptr uniform_init random clean distclean create_dirs targz
+.PHONY: auto_deduces_string_chrono deprecated_attribute binary_literals tuple_addressing_via_type return_type_deduction regex chrono_seconds chrono lambda_for_each auto_decltype for_iter nullptr uniform_init random clean distclean create_dirs targz
 
-all: create_dirs deprecated_attribute binary_literals tuple_addressing_via_type return_type_deduction regex chrono_seconds chrono lambda_for_each auto_decltype for_iter nullptr uniform_init random
+all: create_dirs auto_deduces_string_chrono deprecated_attribute binary_literals tuple_addressing_via_type return_type_deduction regex chrono_seconds chrono lambda_for_each auto_decltype for_iter nullptr uniform_init random
+
+auto_deduces_string_chrono: src/auto_deduces_string_chrono.cc create_dirs
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
 
 deprecated_attribute: src/deprecated_attribute.cc create_dirs
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BINDIR)/$@ $< $(LIBS)
