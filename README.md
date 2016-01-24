@@ -1,8 +1,11 @@
 # My C++ samples code [![Build Status](https://travis-ci.org/fenicks/cplusplus_samples.svg?branch=master)](https://travis-ci.org/fenicks/cplusplus_samples)
 
 * [src/auto_decltype.cc](https://github.com/fenicks/cplusplus_samples/blob/master/src/auto_decltype.cc): Example of __decltype__ and __typeid__ usage
-* [src/chrono.cc](https://github.com/fenicks/cplusplus_samples/blob/master/src/chrono.cc): Getting clock __tick__ and __sleep__ (threading) in code.
+* [src/auto_deduces_string_chrono.cc](https://github.com/fenicks/cplusplus_samples/blob/master/src/auto_deduces_string_chrono.cc): String and Chrono literals samples
+* [src/binary_literals.cc](https://github.com/fenicks/cplusplus_samples/blob/master/src/binary_literals.cc): Binary literal sample
+* [src/chrono.cc](https://github.com/fenicks/cplusplus_samples/blob/master/src/chrono.cc): Getting clock __tick__ and __sleep__ (threading) in code
 * [src/chrono_seconds.cc](https://github.com/fenicks/cplusplus_samples/blob/master/src/chrono_seconds.cc): Get the duration by specifying the unit: seconds, minutes, ...
+* [src/deprecated_attribute.cc](https://github.com/fenicks/cplusplus_samples/blob/master/src/deprecated_attribute.cc): Deprecated attribute sample
 * [src/for_iter.cc](https://github.com/fenicks/cplusplus_samples/blob/master/src/for_iter.cc): Collection iteration with __for__ control structure
 * [src/lambda_for-each.cc](https://github.com/fenicks/cplusplus_samples/blob/master/src/lambda_for-each.cc): Use a lambda in __for_each__ standard function
 * [src/nullptr.cc](https://github.com/fenicks/cplusplus_samples/blob/master/src/nullptr.cc): Use of __nullptr__ in code
