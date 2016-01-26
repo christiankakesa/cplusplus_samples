@@ -8,6 +8,7 @@
 * [src/deprecated_attribute.cc](https://github.com/fenicks/cplusplus_samples/blob/master/src/deprecated_attribute.cc): Deprecated attribute sample
 * [src/for_iter.cc](https://github.com/fenicks/cplusplus_samples/blob/master/src/for_iter.cc): Collection iteration with __for__ control structure
 * [src/lambda_for-each.cc](https://github.com/fenicks/cplusplus_samples/blob/master/src/lambda_for-each.cc): Use a lambda in __for_each__ standard function
+* [src/make_unique.cc](https://github.com/fenicks/cplusplus_samples/blob/master/src/make_unique.cc): Use a lambda in __for_each__ standard functionstd::make_unique sample
 * [src/nullptr.cc](https://github.com/fenicks/cplusplus_samples/blob/master/src/nullptr.cc): Use of __nullptr__ in code
 * [src/random.cc](https://github.com/fenicks/cplusplus_samples/blob/master/src/random.cc): How easy it is to generate random numbers
 * [src/regex.cc](https://github.com/fenicks/cplusplus_samples/blob/master/src/regex.cc): Usage of regexp to find emails in string 
